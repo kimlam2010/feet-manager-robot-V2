@@ -1,4 +1,4 @@
-import { RobotCapability } from './robot.types';
+import { RobotCapabilities } from './robot.types';
 
 export interface Task {
   id: string;
@@ -7,7 +7,7 @@ export interface Task {
   type: TaskType;
   status: TaskStatus;
   priority: TaskPriority;
-  requiredCapabilities: RobotCapability[];
+  requiredCapabilities: RobotCapabilities[];
   assignedRobotId?: string;
   worksetId?: string;
   startLocation: TaskLocation;
@@ -19,6 +19,9 @@ export interface Task {
   endTime?: Date;
   createdAt: Date;
   updatedAt: Date;
+  requirements: TaskRequirements;
+  progress: TaskProgress;
+  metadata: Record<string, string | number | boolean>;
 }
 
 export interface TaskLocation {
@@ -41,5 +44,38 @@ export interface TaskPayload {
 }
 
 export type TaskType = 'transport' | 'pickup' | 'place' | 'charge' | 'maintenance' | 'custom';
-export type TaskStatus = 'pending' | 'assigned' | 'in-progress' | 'completed' | 'failed' | 'cancelled';
-export type TaskPriority = 'low' | 'medium' | 'high' | 'critical'; 
+export type TaskStatus = 'pending' | 'assigned' | 'in-progress' | 'completed' | 'failed';
+
+export interface TaskPriority {
+  level: 'low' | 'medium' | 'high' | 'critical';
+  score: number;
+}
+
+export interface TaskRequirements {
+  minBatteryLevel: number;
+  capabilities: RobotCapabilities[];
+  payload?: {
+    weight: number;
+    dimensions: {
+      length: number;
+      width: number;
+      height: number;
+    };
+  };
+}
+
+export interface TaskProgress {
+  status: TaskStatus;
+  completedSteps: number;
+  totalSteps: number;
+  startTime?: string;
+  endTime?: string;
+  errors: TaskError[];
+}
+
+export interface TaskError {
+  code: string;
+  message: string;
+  timestamp: string;
+  severity: 'warning' | 'error' | 'critical';
+}

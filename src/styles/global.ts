@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { theme } from './theme';
+import theme from './theme';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -10,26 +10,24 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px;
-    font-family: ${theme.typography.fontFamily};
   }
 
   body {
+    font-family: ${theme.typography.fontFamily};
     background-color: ${theme.colors.background.default};
     color: ${theme.colors.text.primary};
     line-height: 1.5;
   }
 
   a {
-    color: ${theme.colors.primary.main};
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+    color: inherit;
   }
 
   button {
     cursor: pointer;
+    border: none;
+    background: none;
     font-family: inherit;
   }
 
@@ -41,4 +39,4 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
-`; 
+`;

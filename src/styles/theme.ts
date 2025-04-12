@@ -1,29 +1,30 @@
 import { DefaultTheme } from 'styled-components';
 
-export const theme: DefaultTheme = {
+const theme: DefaultTheme = {
   colors: {
     primary: {
-      main: '#007bff',
-      light: '#66b3ff',
-      dark: '#0056b3',
+      main: '#1976d2',
+      light: '#42a5f5',
+      dark: '#1565c0',
     },
     secondary: {
-      main: '#6c757d',
-      light: '#9fa6ad',
-      dark: '#4e555b',
+      main: '#9c27b0',
+      light: '#ba68c8',
+      dark: '#7b1fa2',
     },
     background: {
-      default: '#ffffff',
-      paper: '#f8f9fa',
+      default: '#f5f5f5',
+      paper: '#ffffff',
     },
     text: {
-      primary: '#212529',
-      secondary: '#6c757d',
-      disabled: '#adb5bd',
+      primary: '#000000',
+      secondary: '#666666',
+      disabled: '#999999',
     },
+    white: '#ffffff',
   },
   typography: {
-    fontFamily: "'Roboto', 'Helvetica Neue', Arial, sans-serif",
+    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: {
       small: '0.875rem',
       medium: '1rem',
@@ -34,20 +35,22 @@ export const theme: DefaultTheme = {
       medium: 500,
       bold: 700,
     },
+    h4: '2rem',
   },
   spacing: {
-    xs: '0.25rem',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '1.5rem',
-    xl: '2rem',
+    small: '0.5rem',
+    medium: '1rem',
+    large: '2rem',
   },
   borderRadius: {
     small: '4px',
     medium: '8px',
-    large: '12px',
+    large: '16px',
+    full: '9999px',
   },
 };
+
+export default theme;
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -71,6 +74,7 @@ declare module 'styled-components' {
         secondary: string;
         disabled: string;
       };
+      white: string;
     };
     typography: {
       fontFamily: string;
@@ -84,18 +88,18 @@ declare module 'styled-components' {
         medium: number;
         bold: number;
       };
+      h4: string;
     };
     spacing: {
-      xs: string;
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
+      small: string;
+      medium: string;
+      large: string;
     };
     borderRadius: {
       small: string;
       medium: string;
       large: string;
+      full: string;
     };
   }
-} 
+}

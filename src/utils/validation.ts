@@ -13,4 +13,4 @@ export const isPhoneNumber = (phone: string): boolean => {
   // Số điện thoại Việt Nam (10 số, bắt đầu bằng 0)
   const re = /^0\d{9}$/;
   return re.test(phone);
-}; 
+};

@@ -1,47 +1,42 @@
-export interface Robot {
-  id: string;
+export interface RobotPosition {
+  x: number;
+  y: number;
+  orientation: 'north' | 'south' | 'east' | 'west';
+}
+
+export interface RobotStatus {
+  batteryLevel: number;
+  isOnline: boolean;
+  isCharging: boolean;
+  lastSeen: string;
+  currentTask?: string;
+}
+
+export interface RobotCapabilities {
+  maxSpeed: number;
+  maxPayload: number;
+  sensors: string[];
+  supportedTasks: string[];
+}
+
+export interface RobotConfiguration {
   name: string;
   model: string;
   serialNumber: string;
+  firmwareVersion: string;
+  capabilities: RobotCapabilities;
+}
+
+export interface Robot {
+  id: string;
+  name: string;
   status: RobotStatus;
-  capabilities: RobotCapability[];
-  currentLocation?: RobotLocation;
-  currentTaskId?: string;
-  currentWorksetId?: string;
-  batteryLevel: number; // percentage
-  batteryStatus: BatteryStatus;
-  lastMaintenance?: Date;
-  nextMaintenanceDue?: Date;
-  createdAt: Date;
-  updatedAt: Date;
+  position: RobotPosition;
+  configuration: RobotConfiguration;
+  metadata: Record<string, string | number | boolean>;
 }
 
-export interface RobotLocation {
-  x: number;
-  y: number;
-  z: number;
-  orientation: number; // in degrees
-  zone?: string;
-  timestamp: Date;
-}
-
-export type RobotStatus = 'available' | 'busy' | 'charging' | 'maintenance' | 'error' | 'offline';
-export type BatteryStatus = 'charging' | 'discharging' | 'full' | 'low' | 'critical';
-export type RobotCapability = 
-  | 'move'
-  | 'lift'
-  | 'grab'
-  | 'rotate'
-  | 'scan'
-  | 'communicate'
-  | 'navigate'
-  | 'avoid_obstacles'
-  | 'handle_fragile'
-  | 'handle_heavy'
-  | 'precise_positioning';
-
-export interface RobotCommand {
-  type: 'move' | 'stop' | 'charge' | 'execute';
-  parameters?: Record<string, any>;
-  timestamp: Date;
-} 
+export type RobotCommand = {
+  type: 'move' | 'stop' | 'charge' | 'executeTask';
+  parameters: Record<string, string | number | boolean>;
+};

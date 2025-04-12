@@ -5,6 +5,7 @@
 Tài liệu này mô tả kiến trúc và implementation của Design System cho Feet Robot Manager V2.
 
 ### 1.1 Mục tiêu
+
 - Cung cấp hệ thống thiết kế nhất quán
 - Tăng tốc độ phát triển
 - Đảm bảo tính nhất quán của UI/UX
@@ -13,6 +14,7 @@ Tài liệu này mô tả kiến trúc và implementation của Design System ch
 - Type safety với TypeScript
 
 ### 1.2 Phạm vi
+
 - Design Tokens
 - Component Library
 - Theme System
@@ -25,6 +27,7 @@ Tài liệu này mô tả kiến trúc và implementation của Design System ch
 ## 2. Design Tokens
 
 ### 2.1 Token Structure
+
 ```typescript
 // design-tokens.ts
 interface DesignTokens {
@@ -71,9 +74,9 @@ interface DesignTokens {
     xl: string;
   };
   borderRadius: {
-    sm: string;
-    md: string;
-    lg: string;
+    small: string;
+    medium: string;
+    large: string;
     full: string;
   };
   shadows: {
@@ -97,6 +100,7 @@ interface DesignTokens {
 ```
 
 ### 2.2 Token Implementation
+
 ```typescript
 // tokens/light.ts
 export const lightTokens: DesignTokens = {
@@ -142,6 +146,7 @@ export const darkTokens: DesignTokens = {
 ## 3. Component Library
 
 ### 3.1 Base Components
+
 ```typescript
 // components/Button.tsx
 interface ButtonProps {
@@ -162,7 +167,7 @@ const Button = styled.button<ButtonProps>`
   font-size: ${({ theme, size = 'md' }) => theme.typography.fontSize[size]};
   font-weight: ${({ theme }) => theme.typography.fontWeight.medium};
   padding: ${({ theme, size = 'md' }) => theme.spacing[size]};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -223,6 +228,7 @@ const Button = styled.button<ButtonProps>`
 ```
 
 ### 3.2 Form Components
+
 ```typescript
 // components/Input.tsx
 interface InputProps {
@@ -236,9 +242,8 @@ interface InputProps {
 const Input = styled.input<InputProps>`
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   padding: ${({ theme }) => theme.spacing.sm};
-  border: 1px solid ${({ theme, error }) =>
-    error ? theme.colors.error.main : theme.colors.border};
-  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  border: 1px solid ${({ theme, error }) => (error ? theme.colors.error.main : theme.colors.border)};
+  border-radius: ${({ theme }) => theme.borderRadius.small};
   font-family: ${({ theme }) => theme.typography.fontFamily};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   transition: all 0.2s ease-in-out;
@@ -259,6 +264,7 @@ const Input = styled.input<InputProps>`
 ## 4. Theme System
 
 ### 4.1 Theme Provider
+
 ```typescript
 // theme/ThemeProvider.tsx
 interface ThemeProviderProps {
@@ -288,6 +294,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({
 ```
 
 ### 4.2 Theme Hooks
+
 ```typescript
 // theme/useTheme.ts
 const useTheme = () => {
@@ -307,6 +314,7 @@ const useThemeTokens = () => {
 ## 5. Typography System
 
 ### 5.1 Typography Components
+
 ```typescript
 // typography/Text.tsx
 interface TextProps {
@@ -354,6 +362,7 @@ const Text = styled.p<TextProps>`
 ## 6. Icon System
 
 ### 6.1 Icon Components
+
 ```typescript
 // icons/Icon.tsx
 interface IconProps {
@@ -383,6 +392,7 @@ const Icon = styled.i<IconProps>`
 ## 7. Animation System
 
 ### 7.1 Animation Tokens
+
 ```typescript
 // animations/tokens.ts
 export const animationTokens = {
@@ -401,6 +411,7 @@ export const animationTokens = {
 ```
 
 ### 7.2 Animation Components
+
 ```typescript
 // animations/Fade.tsx
 interface FadeProps {
@@ -411,14 +422,15 @@ interface FadeProps {
 
 const Fade = styled.div<FadeProps>`
   opacity: ${({ in: isIn }) => (isIn ? 1 : 0)};
-  transition: opacity ${({ duration = animationTokens.duration.normal })}
-    ${animationTokens.easing.easeInOut};
+  transition: opacity ${{ duration = animationTokens.duration.normal }} ${animationTokens.easing
+      .easeInOut};
 `;
 ```
 
 ## 8. Best Practices
 
 ### 8.1 Design System Guidelines
+
 - Use consistent naming conventions
 - Follow atomic design principles
 - Implement proper TypeScript types
@@ -429,6 +441,7 @@ const Fade = styled.div<FadeProps>`
 - Follow performance best practices
 
 ### 8.2 Component Guidelines
+
 - Keep components small and focused
 - Use proper prop types
 - Implement proper error states
@@ -440,19 +453,22 @@ const Fade = styled.div<FadeProps>`
 ## 9. Tools và Resources
 
 ### 9.1 Design Tools
+
 - [Figma](https://www.figma.com/)
 - [Storybook](https://storybook.js.org/)
 - [Styled Components](https://styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
 ### 9.2 Testing Tools
+
 - [Jest](https://jestjs.io/)
 - [Testing Library](https://testing-library.com/)
 - [Cypress](https://www.cypress.io/)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 ### 9.3 Documentation
+
 - [Material Design](https://material.io/design)
 - [IBM Design Language](https://www.ibm.com/design/language/)
 - [Atlassian Design System](https://atlassian.design/)
-- [Shopify Polaris](https://polaris.shopify.com/) 
+- [Shopify Polaris](https://polaris.shopify.com/)

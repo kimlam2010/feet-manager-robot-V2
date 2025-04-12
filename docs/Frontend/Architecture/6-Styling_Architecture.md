@@ -1,9 +1,11 @@
 # Styling Architecture
 
 ## Overview
+
 The project uses Styled-components as the sole styling solution. PostCSS and CSS Modules are not used in this project.
 
 ## Styling Standards
+
 - Use Styled-components for all styling
 - DO NOT use PostCSS or CSS Modules
 - Follow theme system guidelines
@@ -15,6 +17,7 @@ The project uses Styled-components as the sole styling solution. PostCSS and CSS
 - Test across browsers
 
 ## Core Principles
+
 1. Component-based styling
 2. Theme-driven design
 3. Type-safe styling
@@ -24,30 +27,35 @@ The project uses Styled-components as the sole styling solution. PostCSS and CSS
 ## Implementation Guidelines
 
 ### 1. Component Styling
+
 - Use Styled-components for all component styles
 - Follow Atomic Design principles
 - Implement responsive design using theme breakpoints
 - Use TypeScript for type safety
 
 ### 2. Theme System
+
 - Centralize theme configuration
 - Use TypeScript for theme type definitions
 - Implement dark/light mode support
 - Provide consistent spacing and typography
 
 ### 3. Performance
+
 - Implement code splitting
 - Use dynamic imports for large components
 - Optimize critical CSS
 - Minimize style recalculations
 
 ### 4. Accessibility
+
 - Ensure sufficient color contrast
 - Support keyboard navigation
 - Implement focus management
 - Follow WCAG guidelines
 
 ## Best Practices
+
 1. Use TypeScript for type safety
 2. Follow Atomic Design principles
 3. Implement responsive design
@@ -60,6 +68,7 @@ The project uses Styled-components as the sole styling solution. PostCSS and CSS
 10. Follow naming conventions
 
 ## Example Usage
+
 ```typescript
 import styled from 'styled-components';
 import { Theme } from '../theme';
@@ -70,17 +79,17 @@ interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
   padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
-  background-color: ${({ theme, variant }) => 
+  background-color: ${({ theme, variant }) =>
     variant === 'primary' ? theme.colors.primary : theme.colors.secondary};
   color: ${({ theme }) => theme.colors.text};
   border: none;
-  border-radius: ${({ theme }) => theme.borderRadius};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   cursor: pointer;
-  
+
   &:hover {
     opacity: 0.9;
   }
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -89,6 +98,7 @@ export const Button = styled.button<ButtonProps>`
 ```
 
 ## Testing
+
 - Test component styles
 - Test theme integration
 - Test responsive behavior
@@ -96,6 +106,7 @@ export const Button = styled.button<ButtonProps>`
 - Test performance
 
 ## Documentation
+
 - Document component styles
 - Document theme variables
 - Document responsive breakpoints
@@ -107,6 +118,7 @@ export const Button = styled.button<ButtonProps>`
 Quản lý styling trong ứng dụng React sử dụng Styled Components với Design System.
 
 ### 1.1 Mục tiêu
+
 - Tính nhất quán trong UI
 - Dễ bảo trì
 - Performance tốt
@@ -114,6 +126,7 @@ Quản lý styling trong ứng dụng React sử dụng Styled Components với 
 - Responsive design
 
 ### 1.2 Phạm vi
+
 - Global Styles
 - Component Styles
 - Theme System
@@ -148,6 +161,7 @@ src/
 ## 3. Theme System
 
 ### 3.1 Theme Configuration
+
 ```typescript
 // styles/theme.ts
 import { DefaultTheme } from 'styled-components';
@@ -234,6 +248,7 @@ export const theme: DefaultTheme = {
 ```
 
 ### 3.2 Theme Provider
+
 ```typescript
 // App.tsx
 import { ThemeProvider } from 'styled-components';
@@ -251,13 +266,14 @@ function App() {
 ## 4. Styled Components
 
 ### 4.1 Base Components
+
 ```typescript
 // components/Button/Button.styles.ts
 import styled from 'styled-components';
 
 export const Button = styled.button`
   padding: ${({ theme }) => theme.spacing.md};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   font-size: ${({ theme }) => theme.typography.fontSize.md};
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -269,13 +285,14 @@ export const Button = styled.button`
 ```
 
 ### 4.2 Themed Components
+
 ```typescript
 // components/Card/Card.styles.ts
 import styled from 'styled-components';
 
 export const Card = styled.div`
   background: ${({ theme }) => theme.colors.background.paper};
-  border-radius: ${({ theme }) => theme.borderRadius.md};
+  border-radius: ${({ theme }) => theme.borderRadius.medium};
   box-shadow: ${({ theme }) => theme.shadows.sm};
   padding: ${({ theme }) => theme.spacing.lg};
 `;
@@ -284,6 +301,7 @@ export const Card = styled.div`
 ## 5. Responsive Design
 
 ### 5.1 Media Queries
+
 ```typescript
 // components/Grid/Grid.styles.ts
 import styled from 'styled-components';
@@ -306,6 +324,7 @@ export const Grid = styled.div`
 ## 6. Animations
 
 ### 6.1 Keyframes
+
 ```typescript
 // styles/animations.ts
 import { keyframes } from 'styled-components';
@@ -330,6 +349,7 @@ export const slideIn = keyframes`
 ```
 
 ### 6.2 Animated Components
+
 ```typescript
 // components/Modal/Modal.styles.ts
 import styled from 'styled-components';
@@ -338,4 +358,4 @@ import { fadeIn } from '../../styles/animations';
 export const Modal = styled.div`
   animation: ${fadeIn} 0.3s ease-in-out;
 `;
-``` 
+```

@@ -25,4 +25,4 @@ export const handleApiError = (error: any) => {
     status: 500,
     data: { message: 'Internal Server Error' },
   };
-}; 
+};

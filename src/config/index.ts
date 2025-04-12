@@ -32,4 +32,4 @@ export const config = {
     maxRequestsPerMinute: 50,
     wsStabilityThreshold: 0.999,
   },
-}; 
+};

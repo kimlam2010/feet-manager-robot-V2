@@ -1,19 +1,19 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "targets": {
-        "browsers": [">0.25%", "not dead"]
-      }
-    }],
-    ["@babel/preset-react", {
-      "runtime": "automatic"
-    }],
+    "@babel/preset-env",
+    "@babel/preset-react",
     "@babel/preset-typescript"
   ],
   "plugins": [
-    ["babel-plugin-styled-components", {
-      "displayName": true,
-      "fileName": false
-    }]
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": false,
+        "displayName": true,
+        "fileName": true,
+        "minify": true,
+        "pure": true
+      }
+    ]
   ]
 } 
