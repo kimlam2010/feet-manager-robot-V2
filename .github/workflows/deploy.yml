@@ -32,31 +32,4 @@ jobs:
           kimlam2010/feet-manager-robot:latest
           kimlam2010/feet-manager-robot:${{ github.sha }}
         cache-from: type=registry,ref=kimlam2010/feet-manager-robot:buildcache
-        cache-to: type=registry,ref=kimlam2010/feet-manager-robot:buildcache,mode=max
-
-    - name: Use Node.js 18.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18.x
-        cache: 'npm'
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Build
-      run: npm run build
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
-
-    - name: Deploy to S3
-      run: |
-        aws s3 sync dist/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
-
-    - name: Invalidate CloudFront cache
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*" 
+        cache-to: type=registry,ref=kimlam2010/feet-manager-robot:buildcache,mode=max 
