@@ -1,0 +1,20 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+@project - Always check system limits (10 Worksets, 100 robots)
+@architecture - Always follow TypeScript + React architecture guidelines
+@performance - Always maintain performance requirements (load time < 3s, render time < 1s)
+@security - Always implement security measures (JWT, RBAC, data encryption)
+@testing - Always include unit tests and integration tests
+@documentation - Always update related documentation
+@error - Always implement proper error handling and logging
+@review - Always follow code review process and standards
+@deployment - Always follow CI/CD pipeline procedures
+@monitoring - Always ensure system monitoring and alerts are configured
+@realtime - Always verify WebSocket/MQTT/gRPC connections for robot communication
+@offline - Always implement offline support with SQLite
+@ui - Always follow design system and accessibility guidelines
+@optimization - Always check bundle size and implement code splitting
+@compatibility - Always test across supported browsers (Chrome >= 90, Firefox >= 88, Edge >= 90)

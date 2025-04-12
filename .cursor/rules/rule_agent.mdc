@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
+alwaysApply: false
+---
+@task - Agent MUST understand and follow project requirements
+@code - Agent MUST write clean, maintainable TypeScript/React code
+@scale - Agent MUST consider system scale (10 Worksets, 100 robots)
+@protocol - Agent MUST implement correct communication protocols (REST, WebSocket, MQTT, gRPC)
+@storage - Agent MUST handle data persistence (PostgreSQL, SQLite)
+@realtime - Agent MUST ensure real-time updates for robot status
+@offline - Agent MUST implement offline-first functionality
+@error - Agent MUST implement comprehensive error handling
+@security - Agent MUST follow security best practices
+@performance - Agent MUST optimize for performance requirements
+@test - Agent MUST write necessary tests (unit, integration, E2E)
+@doc - Agent MUST update relevant documentation
+@ui - Agent MUST follow design system guidelines and use Styled-components (NO PostCSS or CSS Modules)
+@review - Agent MUST follow code review guidelines
+@deploy - Agent MUST consider deployment requirements
+@monitor - Agent MUST implement logging and monitoring
+@accessibility - Agent MUST ensure accessibility compliance
+@browser - Agent MUST ensure cross-browser compatibility
+@mobile - Agent MUST ensure responsive design
+@debug - Agent MUST provide clear debugging information

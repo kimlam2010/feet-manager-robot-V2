@@ -1,0 +1,298 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Cursor Rules for Feet Manager Robot Project
+
+## 📚 Required Reading Order
+Agent MUST read ALL files below in order before processing any user requests:
+
+1. [1-README.md](mdc:docs/Frontend/Architecture/1-README.md) - Project Overview
+2. [2-Component_Architecture.md](mdc:docs/Frontend/Architecture/2-Component_Architecture.md) - Component Structure
+3. [3-State_Management.md](mdc:docs/Frontend/Architecture/3-State_Management.md) - State Management
+4. [4-Routing_Architecture.md](mdc:docs/Frontend/Architecture/4-Routing_Architecture.md) - Routing System
+5. [5-API_Integration.md](mdc:docs/Frontend/Architecture/5-API_Integration.md) - API Integration
+6. [6-Styling_Architecture.md](mdc:docs/Frontend/Architecture/6-Styling_Architecture.md) - Styling System
+7. [7-Testing_Architecture.md](mdc:docs/Frontend/Architecture/7-Testing_Architecture.md) - Testing Strategy
+8. [8-Deployment_Architecture.md](mdc:docs/Frontend/Architecture/8-Deployment_Architecture.md) - Deployment Process
+9. [9-Security_Architecture.md](mdc:docs/Frontend/Architecture/9-Security_Architecture.md) - Security Implementation
+10. [10-Design_System.md](mdc:docs/Frontend/Architecture/10-Design_System.md) - Design System
+
+## 📚 Development Documents
+Agent MUST read ALL Development documents below in order:
+
+1. [0-Development_Guide.md](mdc:docs/Frontend/Development/0-Development_Guide.md) - Development Overview
+2. [1-Coding_Standards.md](mdc:docs/Frontend/Development/1-Coding_Standards.md) - Coding Standards
+3. [2-Component_Development.md](mdc:docs/Frontend/Development/2-Component_Development.md) - Component Development
+4. [3-API_Integration.md](mdc:docs/Frontend/Development/3-API_Integration.md) - API Integration
+5. [4-Error_Handling.md](mdc:docs/Frontend/Development/4-Error_Handling.md) - Error Handling
+6. [5-Testing_Strategy.md](mdc:docs/Frontend/Development/5-Testing_Strategy.md) - Testing Strategy
+7. [6-Performance_Optimization.md](mdc:docs/Frontend/Development/6-Performance_Optimization.md) - Performance Optimization
+8. [7-Security_Implementation.md](mdc:docs/Frontend/Development/7-Security_Implementation.md) - Security Implementation
+9. [8-Deployment_Process.md](mdc:docs/Frontend/Development/8-Deployment_Process.md) - Deployment Process
+
+## 📚 User Guide Documents
+Agent MUST read ALL User Guide documents below in order:
+
+1. [User_Guide.md](mdc:docs/User Guild/User_Guide.md) - User Guide Overview
+2. [Quick_Start_Guide.md](mdc:docs/User Guild/Quick_Start_Guide.md) - Quick Start Guide
+3. [Features/](mdc:docs/User Guild/Features) - Features Documentation
+4. [Getting_Started/](mdc:docs/User Guild/Getting_Started) - Getting Started Guide
+5. [Troubleshooting/](mdc:docs/User Guild/Troubleshooting) - Troubleshooting Guide
+
+## ⚠️ Important Notes
+- Agent MUST read ALL files in the specified order
+- Agent MUST understand the complete architecture before proceeding
+- Agent MUST reference these documents when providing solutions
+- Agent MUST ensure all solutions align with the documented architecture
+- Agent MUST follow the development standards and guidelines
+- Agent MUST implement error handling and security measures
+- Agent MUST optimize performance for the system limits
+- Agent MUST follow the testing and deployment processes
+- Agent MUST understand user requirements and workflows
+- Agent MUST consider user experience in all solutions
+- Agent MUST provide clear documentation for users
+- Agent MUST include troubleshooting steps in solutions
+
+### System Architecture
+- Follow system limits: 10 Worksets, 100 robots
+- Implement simple 2D map visualization
+- Support real-time updates via WebSocket/MQTT/gRPC
+- Ensure offline support with SQLite
+- Maintain performance requirements:
+  - Page load time < 3 seconds
+  - Render time < 1 second
+  - Memory usage < 100MB
+  - Network requests < 50 per minute
+  - WebSocket/gRPC connection stability > 99.9%
+
+### Development Standards
+- Use TypeScript for all new code
+- Follow ESLint and Prettier rules
+- Use functional components with hooks
+- Follow Atomic Design principles
+- Use Styled-components for styling (NO PostCSS or CSS Modules)
+- Write unit tests for all components
+- Follow Git workflow and commit message conventions
+- Use pull request template for code reviews
+
+### Styling Standards
+- Use Styled-components for all styling
+- DO NOT use PostCSS or CSS Modules
+- Follow theme system guidelines
+- Implement responsive design
+- Ensure accessibility compliance
+- Optimize for performance
+- Use TypeScript for type safety
+- Document component styles
+- Test across browsers
+
+### Error Handling
+- Implement comprehensive error handling
+- Log errors with appropriate severity
+- Provide user-friendly error messages
+- Handle offline scenarios gracefully
+- Implement retry mechanisms for failed operations
+
+### API Integration
+- Implement REST API endpoints
+- Support WebSocket for real-time updates
+- Implement gRPC for high-performance communication
+- Use MQTT for IoT device communication
+- Follow API versioning standards
+- Document all API endpoints
+- Implement rate limiting
+- Handle API errors gracefully
+
+### Security
+- Implement JWT authentication
+- Use role-based access control
+- Encrypt sensitive data
+- Secure WebSocket/gRPC connections
+- Prevent XSS and CSRF attacks
+- Follow security best practices
+- Implement gRPC interceptors for authentication
+- Use TLS for gRPC connections
+
+### Performance
+- Optimize bundle size
+- Implement code splitting
+- Use lazy loading for components
+- Implement memoization
+- Use virtualization for lists
+- Implement caching strategies
+- Optimize network requests
+- Use gRPC for high-performance communication
+- Implement gRPC streaming for real-time data
+
+### Testing
+- Write unit tests for components
+- Implement integration tests
+- Perform E2E testing
+- Conduct performance testing
+- Test security measures
+- Ensure accessibility compliance
+- Test gRPC service integration
+- Validate gRPC streaming functionality
+
+### Deployment
+- Follow CI/CD pipeline
+- Use environment variables
+- Implement monitoring
+- Set up logging
+- Configure alerts
+- Plan rollback procedures
+- Configure gRPC service endpoints
+- Set up gRPC load balancing
+
+### User Experience
+- Understand user requirements
+- Consider user workflows
+- Provide clear documentation
+- Include troubleshooting steps
+- Ensure accessibility
+- Optimize for performance
+
+## 🔗 Additional Resources
+- [Frontend Implementation Steps](mdc:App_Frontend/Frontend_Implementation_Steps.md)
+- [Frontend Structure Guide](mdc:App_Frontend/Frontend_Structure_Guide.md)
+- [System Documentation](mdc:docs/Systerm/System_Documentation.md)
+- [Features](mdc:docs/User Guild/Features)
+- [Getting Started](mdc:docs/User Guild/Getting_Started)
+- [Troubleshooting](mdc:docs/User Guild/Troubleshooting)
+
+# Cursor Rules
+
+## Required Reading Order
+
+### 1. System Documents
+1. [System Overview](mdc:../docs/Frontend/System/1-System_Overview.md)
+2. [Backend Integration](mdc:../docs/Frontend/System/2-Backend_Integration.md)
+3. [Development Environment](mdc:../docs/Frontend/System/3-Development_Environment.md)
+
+### 2. Development Documents
+1. [Development Guide](mdc:../docs/Frontend/Development/0-Development_Guide.md)
+2. [Coding Standards](mdc:../docs/Frontend/Development/1-Coding_Standards.md)
+3. [Component Development](mdc:../docs/Frontend/Development/2-Component_Development.md)
+4. [API Integration](mdc:../docs/Frontend/Development/3-API_Integration.md)
+5. [Error Handling](mdc:../docs/Frontend/Development/4-Error_Handling.md)
+6. [Testing Strategy](mdc:../docs/Frontend/Development/5-Testing_Strategy.md)
+7. [Performance Optimization](mdc:../docs/Frontend/Development/6-Performance_Optimization.md)
+8. [Security Implementation](mdc:../docs/Frontend/Development/7-Security_Implementation.md)
+9. [Deployment Process](mdc:../docs/Frontend/Development/8-Deployment_Process.md)
+
+### 3. User Guide Documents
+1. [User Guide](mdc:../docs/User Guild/User_Guide.md)
+2. [Quick Start Guide](mdc:../docs/User Guild/Quick_Start_Guide.md)
+3. [Features](mdc:../docs/User Guild/Features)
+4. [Getting Started](mdc:../docs/User Guild/Getting Started)
+5. [Troubleshooting](mdc:../docs/User Guild/Troubleshooting)
+
+## Important Notes
+
+### System Architecture
+- Follow system limits: 10 Worksets, 100 robots
+- Implement simple 2D map visualization
+- Support real-time updates via WebSocket/MQTT/gRPC
+- Ensure offline support with SQLite
+- Maintain performance requirements:
+  - Page load time < 3 seconds
+  - Render time < 1 second
+  - Memory usage < 100MB
+  - Network requests < 50 per minute
+  - WebSocket/gRPC connection stability > 99.9%
+
+### Development Standards
+- Use TypeScript for all new code
+- Follow ESLint and Prettier rules
+- Use functional components with hooks
+- Follow Atomic Design principles
+- Use Styled-components for styling (NO PostCSS or CSS Modules)
+- Write unit tests for all components
+- Follow Git workflow and commit message conventions
+- Use pull request template for code reviews
+
+### Styling Standards
+- Use Styled-components for all styling
+- DO NOT use PostCSS or CSS Modules
+- Follow theme system guidelines
+- Implement responsive design
+- Ensure accessibility compliance
+- Optimize for performance
+- Use TypeScript for type safety
+- Document component styles
+- Test across browsers
+
+### Error Handling
+- Implement comprehensive error handling
+- Log errors with appropriate severity
+- Provide user-friendly error messages
+- Handle offline scenarios gracefully
+- Implement retry mechanisms for failed operations
+
+### API Integration
+- Implement REST API endpoints
+- Support WebSocket for real-time updates
+- Implement gRPC for high-performance communication
+- Use MQTT for IoT device communication
+- Follow API versioning standards
+- Document all API endpoints
+- Implement rate limiting
+- Handle API errors gracefully
+
+### Security
+- Implement JWT authentication
+- Use role-based access control
+- Encrypt sensitive data
+- Secure WebSocket/gRPC connections
+- Prevent XSS and CSRF attacks
+- Follow security best practices
+- Implement gRPC interceptors for authentication
+- Use TLS for gRPC connections
+
+### Performance
+- Optimize bundle size
+- Implement code splitting
+- Use lazy loading for components
+- Implement memoization
+- Use virtualization for lists
+- Implement caching strategies
+- Optimize network requests
+- Use gRPC for high-performance communication
+- Implement gRPC streaming for real-time data
+
+### Testing
+- Write unit tests for components
+- Implement integration tests
+- Perform E2E testing
+- Conduct performance testing
+- Test security measures
+- Ensure accessibility compliance
+- Test gRPC service integration
+- Validate gRPC streaming functionality
+
+### Deployment
+- Follow CI/CD pipeline
+- Use environment variables
+- Implement monitoring
+- Set up logging
+- Configure alerts
+- Plan rollback procedures
+- Configure gRPC service endpoints
+- Set up gRPC load balancing
+
+### User Experience
+- Understand user requirements
+- Consider user workflows
+- Provide clear documentation
+- Include troubleshooting steps
+- Ensure accessibility
+- Optimize for performance
+
+## Additional Resources
+- [System Documentation](mdc:../docs/Systerm)
+- [Backend Documentation](mdc:../docs/Backend)
+- [Features](mdc:../docs/User Guild/Features)
+- [Getting Started](mdc:../docs/User Guild/Getting Started)
+- [Troubleshooting](mdc:../docs/User Guild/Troubleshooting)
