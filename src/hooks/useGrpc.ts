@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
-import { Client, ClientReadableStream, ServiceError } from '@grpc/grpc-js';
+import { Client, ClientReadableStream, ServiceError } from '@grpc/grpc-js';     
 
 interface GrpcHook<T> {
   isConnected: boolean;
