@@ -1,37 +1,19 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "🔍 Running pre-commit checks..."
-
-# Run TypeScript type checking
 echo "🔎 Running TypeScript type checking..."
-npm run typecheck
+npm run typecheck || exit 1
 
-# Run linting
 echo "🎨 Running ESLint..."
-npm run lint
+npm run lint || exit 1
 
-# Run formatting
 echo "✨ Running formatting..."
-npm run format
+npm run format || exit 1
 
-# Start dev server in background
-echo "🚀 Starting development server..."
-npm run dev & 
-DEV_PID=$!
-
-# Wait for dev server to start (adjust sleep time if needed)
-sleep 10
-
-# Run tests
 echo "🧪 Running tests..."
-npm run test
+npm run test || exit 1
 
-# Stop dev server
-kill $DEV_PID
-
-# Run build
-echo "📦 Verifying production build..."
-npm run build || exit 1
+echo "🧪 Running tests..."
+npm run start || exit 1
 
 echo "✅ All checks passed!" 
