@@ -7,8 +7,13 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1'
   },
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest'
   },
-  coveragePathIgnorePatterns: ['/node_modules/', '/dist/']
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.json'
+    }
+  }
 }; 

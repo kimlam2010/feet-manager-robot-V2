@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-const App: React.FC = () => {
+function App() {
   return (
     <BrowserRouter>
-      <div>
+      <main>
         <h1>Feet Manager Robot</h1>
-      </div>
+      </main>
     </BrowserRouter>
   );
-};
+}
 
 export default App; 
