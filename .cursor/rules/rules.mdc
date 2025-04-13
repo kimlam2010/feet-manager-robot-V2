@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+@styling - Always follow these styling rules:
+  - Use Material-UI as the primary UI component library
+  - Use styled-components for custom styling
+  - DO NOT use Bootstrap or other CSS frameworks
+  - Follow theme system guidelines
+  - Implement responsive design
+  - Ensure accessibility compliance
+  - Optimize for performance
+  - Use TypeScript for type safety
+  - Document component styles
+  - Test across browsers
+
+@theme - Always follow these theme rules:
+  - Use centralized theme configuration
+  - Implement dark/light mode support
+  - Use consistent spacing and typography
+  - Follow Material-UI design principles
+  - Ensure theme consistency across components
+  - Document theme variables
+  - Test theme changes
+  - Maintain theme versioning
+
+@components - Always follow these component rules:
+  - Use Material-UI components as base
+  - Extend with styled-components when needed
+  - Follow Atomic Design principles
+  - Implement responsive design
+  - Ensure accessibility
+  - Document component usage
+  - Test component behavior
+  - Maintain component consistency

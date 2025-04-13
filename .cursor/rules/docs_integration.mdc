@@ -1,0 +1,77 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Documentation integration and auto-attachment rules
+globs: 
+alwaysApply: true
+---
+
+@docs_structure:
+  - Frontend/
+    - Architecture/
+      - Component structure
+      - State management
+      - Data flow
+    - UI_UX/
+      - Design system
+      - Component library
+      - Accessibility
+    - Development/
+      - Setup guide
+      - Coding standards
+      - Testing guide
+    - Deployment/
+      - Build process
+      - Environment setup
+      - CI/CD pipeline
+  - Backend/
+    - API documentation
+    - Database schema
+    - Service architecture
+  - System/
+    - Infrastructure
+    - Monitoring
+    - Security
+  - User Guide/
+    - Features
+    - Workflows
+    - Troubleshooting
+
+@auto_attach:
+  - Documentation:
+    - Attach relevant docs when discussing features
+    - Include architecture docs for design decisions
+    - Link to UI/UX guides for component work
+  
+  - Code:
+    - Attach component files for UI work
+    - Include test files when debugging
+    - Show config files for setup issues
+    - Link related components for context
+
+  - Context:
+    - Include parent components
+    - Show related services
+    - Attach type definitions
+    - Link utility functions
+
+@documentation_workflow:
+  - When Creating Components:
+    1. Check UI/UX guidelines
+    2. Review component structure
+    3. Follow coding standards
+    4. Update component docs
+  
+  - When Fixing Bugs:
+    1. Check error documentation
+    2. Review test cases
+    3. Update troubleshooting guide
+  
+  - When Adding Features:
+    1. Update feature documentation
+    2. Add technical details
+    3. Update user guide
+    4. Review architecture docs

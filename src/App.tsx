@@ -1,6 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import styled, { ThemeProvider } from 'styled-components';
+import { store, persistor } from './store';
+import { AuthProvider } from './contexts/AuthContext';
 import theme from './styles/theme';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
@@ -13,20 +17,26 @@ const AppContainer = styled.div`
   flex-direction: column;
 `;
 
-const App: React.FC = () => {
+function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <AppContainer>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/robots" element={<RobotManagement />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </Layout>
-      </AppContainer>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AuthProvider>
+          <ThemeProvider theme={theme}>
+            <AppContainer>
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/robots" element={<RobotManagement />} />
+                  <Route path="/settings" element={<Settings />} />
+                </Routes>
+              </Layout>
+            </AppContainer>
+          </ThemeProvider>
+        </AuthProvider>
+      </PersistGate>
+    </Provider>
   );
-};
+}
 
 export default App;

@@ -1,0 +1,86 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Project context and structure guidelines
+globs: 
+alwaysApply: true
+---
+
+@project_context:
+  - Project Purpose:
+    - Robot Fleet Management System
+    - Real-time monitoring and control
+    - Workset organization
+    - Offline capability
+    - Multi-robot coordination
+
+  - Key Features:
+    - Robot Status Monitoring:
+      - Real-time updates
+      - Battery status
+      - Error reporting
+      - Activity logs
+    - Workset Management:
+      - Creation and editing
+      - Assignment
+      - Scheduling
+      - Progress tracking
+    - System Features:
+      - Offline support
+      - Data synchronization
+      - Performance monitoring
+      - Security controls
+
+  - File Structure:
+    - /src
+      - /components
+        - /ui
+          - /buttons
+          - /inputs
+          - /feedback
+          - /forms
+          - /modals
+          - /loading
+          - /layout
+          - /navigation
+        - /features
+          - /robots
+          - /worksets
+          - /monitoring
+        - /auth
+      - /services
+        - API services
+        - WebSocket services
+        - Storage services
+      - /hooks
+        - Custom hooks
+        - Shared logic
+      - /utils
+        - Helper functions
+        - Constants
+      - /types
+        - Type definitions
+        - Interfaces
+      - /contexts
+        - State management
+        - Global contexts
+
+  - Documentation Location:
+    - Technical Documentation:
+      - /docs/Frontend/ - Frontend architecture and components
+      - /docs/Backend/ - API and services
+      - /docs/System/ - Infrastructure and deployment
+    - User Documentation:
+      - /docs/User Guide/ - Feature guides and workflows
+    
+  - Development Guidelines:
+    - Always check documentation first
+    - Follow component structure
+    - Maintain type safety
+    - Write tests for new features
+    - Update documentation
+    - Consider offline scenarios
+    - Optimize for performance

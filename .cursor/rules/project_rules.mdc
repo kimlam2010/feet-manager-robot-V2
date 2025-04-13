@@ -1,0 +1,89 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Main project rules and standards
+globs: 
+alwaysApply: true
+---
+
+@project_standards:
+  - System Limits:
+    - 10 Worksets maximum
+    - 100 robots per system
+    - Load time < 3s
+    - Render time < 1s
+  
+  - Tech Stack:
+    - Frontend: TypeScript + React
+    - State Management: Context + Hooks
+    - Styling: Styled-components only
+    - API: REST + WebSocket/MQTT/gRPC
+    - Database: PostgreSQL + SQLite (offline)
+
+  - Code Quality:
+    - TypeScript strict mode enabled
+    - ESLint + Prettier configuration
+    - Unit + Integration Tests required
+    - Error Boundaries for components
+    - Performance Monitoring implementation
+
+  - UI/UX Standards:
+    - Component Structure:
+      - /ui/buttons - Button components
+      - /ui/inputs - Input fields
+      - /ui/feedback - Notifications, alerts
+      - /ui/forms - Form components
+      - /ui/modals - Modal dialogs
+      - /ui/loading - Loading indicators
+      - /ui/layout - Layout components
+      - /ui/navigation - Navigation elements
+    - Accessibility: WCAG 2.1 compliance
+    - Responsive: Mobile-first approach
+    - Browser Support: Chrome >= 90, Firefox >= 88, Edge >= 90
+
+@development_workflow:
+  - Pre-development:
+    1. Check documentation
+    2. Review component structure
+    3. Plan implementation
+    4. Consider offline support
+
+  - Development:
+    1. Write clean, typed code
+    2. Follow component structure
+    3. Add error handling
+    4. Implement tests
+    5. Optimize performance
+    6. Add documentation
+
+  - Quality Checks:
+    1. TypeScript compilation (npm run typecheck)
+    2. ESLint validation (npm run lint)
+    3. Prettier formatting (npm run format)
+    4. Unit tests (npm run test)
+    5. Build verification (npm run build)
+
+@security_standards:
+  - Authentication: JWT implementation
+  - Authorization: RBAC system
+  - Data Encryption: In-transit and at-rest
+  - Input Validation: All user inputs
+  - API Security: Rate limiting, CORS
+  - Offline Data: Encrypted SQLite
+
+@performance_requirements:
+  - Loading:
+    - Initial load < 3s
+    - Route changes < 1s
+    - API responses < 2s
+  - Rendering:
+    - Component render < 100ms
+    - List rendering optimized
+    - Lazy loading for routes
+  - Bundle:
+    - Main bundle < 500KB
+    - Code splitting implemented
+    - Tree shaking enabled
