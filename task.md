@@ -3,60 +3,157 @@
 ## Tổng quan
 Dự án Feet Manager Robot là một hệ thống quản lý robot với khả năng hoạt động real-time và offline, hỗ trợ tối đa 10 worksets và 100 robots.
 
+## Cấu trúc Dự án
+```
+src/
+├── app/                    # Next.js app router
+│   ├── (auth)/            # Authentication routes
+│   ├── (dashboard)/       # Dashboard routes
+│   ├── (robots)/          # Robot management routes
+│   └── (worksets)/        # Workset management routes
+├── components/            # React components
+│   ├── ui/               # UI components
+│   │   ├── buttons/      # Button components
+│   │   ├── inputs/       # Input components
+│   │   ├── feedback/     # Feedback components
+│   │   ├── forms/        # Form components
+│   │   ├── modals/       # Modal components
+│   │   ├── loading/      # Loading components
+│   │   ├── layout/       # Layout components
+│   │   └── navigation/   # Navigation components
+│   └── features/         # Feature components
+├── lib/                  # Core libraries
+├── hooks/               # Custom hooks
+├── types/               # TypeScript types
+├── styles/              # Global styles
+└── contexts/            # React contexts
+```
+
 ## Chi tiết Công việc
 
-| STT | Module | Công việc | Công nghệ | Thời gian (ngày) | Đầu ra | Rủi ro | Phụ thuộc | Tiến độ |
-|-----|---------|-----------|-----------|-----------------|--------|--------|-----------|---------|
-| 1 | Project Setup | - Tạo repository GitHub<br>- Setup Git workflow<br>- Cấu hình branch protection<br>- Setup issue templates<br>- Setup pull request templates<br>- Setup project wiki | Git, GitHub | 1 | - Repository structure<br>- Git workflow<br>- Documentation templates | - Repository setup issues<br>- Access control problems | Không | ✅ Hoàn thành |
-| 2 | Development Environment | - Setup Node.js environment<br>- Install TypeScript<br>- Setup ESLint<br>- Setup Prettier<br>- Setup Husky<br>- Setup lint-staged<br>- Setup commitlint<br>- Setup editor config | Node.js, TypeScript, ESLint, Prettier, Husky | 1 | - Development environment<br>- Code quality tools<br>- Git hooks | - Environment compatibility<br>- Tool conflicts | Project Setup | ✅ Hoàn thành |
-| 3 | Build System | - Setup Webpack<br>- Setup Babel<br>- Setup Styled-components<br>- Setup asset optimization<br>- Setup source maps<br>- Setup development server<br>- Setup production build | Webpack, Babel, Styled-components | 2 | - Build configuration<br>- Development server<br>- Production build | - Build performance issues<br>- Configuration conflicts | Development Environment | ✅ Hoàn thành |
-| 4 | Containerization | - Create Dockerfile<br>- Setup Docker Compose<br>- Configure development containers<br>- Setup production containers<br>- Setup database containers<br>- Setup cache containers<br>- Setup monitoring containers | Docker, Docker Compose | 2 | - Docker images<br>- Container configuration<br>- Development environment | - Container performance<br>- Resource usage | Build System | ✅ Hoàn thành |
-| 5 | CI/CD Pipeline | - Setup GitHub Actions<br>- Configure build workflow<br>- Setup test workflow<br>- Setup deployment workflow<br>- Setup security scanning<br>- Setup dependency updates<br>- Setup automated releases | GitHub Actions | 2 | - CI/CD pipelines<br>- Automated workflows<br>- Release process | - Pipeline failures<br>- Deployment issues | Containerization | ✅ Hoàn thành |
-| 6 | Core Architecture | - Design folder structure<br>- Setup module system<br>- Implement dependency injection<br>- Setup error handling<br>- Setup logging system<br>- Setup configuration management<br>- Setup environment variables | TypeScript, Node.js | 3 | - Project structure<br>- Core systems<br>- Configuration | - Architecture complexity<br>- Performance impact | CI/CD Pipeline | ✅ Hoàn thành |
-| 7 | State Management | - Setup Redux store<br>- Implement actions<br>- Setup reducers<br>- Setup middleware<br>- Setup selectors<br>- Setup async actions<br>- Setup persistence<br>- Setup dev tools | Redux, Redux Toolkit | 2 | - State management<br>- Dev tools<br>- Persistence layer | - State complexity<br>- Performance issues | Core Architecture |
-| 8 | Routing System | - Setup React Router<br>- Implement route guards<br>- Setup route transitions<br>- Setup route parameters<br>- Setup nested routes<br>- Setup route animations<br>- Setup route metadata | React Router | 2 | - Routing system<br>- Route protection<br>- Navigation | - Route conflicts<br>- Performance issues | State Management |
-| 9 | API Client | - Setup Axios<br>- Implement request interceptors<br>- Setup response interceptors<br>- Setup error handling<br>- Setup retry mechanism<br>- Setup caching<br>- Setup request queue<br>- Setup offline support | Axios, React Query | 2 | - API client<br>- Error handling<br>- Caching system | - Network issues<br>- Cache consistency | Routing System |
-| 10 | Authentication System | - Setup JWT authentication<br>- Implement login flow<br>- Setup registration flow<br>- Setup password reset<br>- Setup email verification<br>- Setup social login<br>- Setup session management<br>- Setup token refresh | JWT, OAuth2 | 3 | - Authentication system<br>- User management<br>- Security layer | - Security vulnerabilities<br>- Token issues | API Client |
-| 11 | Authorization System | - Setup RBAC<br>- Implement role management<br>- Setup permission system<br>- Setup access control<br>- Setup policy engine<br>- Setup audit logging<br>- Setup security headers<br>- Setup rate limiting | RBAC, Casbin | 2 | - Authorization system<br>- Role management<br>- Audit logs | - Permission conflicts<br>- Performance impact | Authentication System |
-| 12 | Database Design | - Design data models<br>- Setup PostgreSQL<br>- Setup SQLite<br>- Create migrations<br>- Setup seed data<br>- Setup indexes<br>- Setup constraints<br>- Setup triggers | PostgreSQL, SQLite, TypeORM | 3 | - Database schema<br>- Migrations<br>- Seed data | - Data consistency<br>- Performance issues | Authorization System |
-| 13 | API Design | - Design REST endpoints<br>- Setup WebSocket<br>- Setup gRPC<br>- Setup API documentation<br>- Setup request validation<br>- Setup response formatting<br>- Setup error handling<br>- Setup versioning | REST, WebSocket, gRPC | 4 | - API documentation<br>- Endpoints<br>- Validation | - API performance<br>- Documentation accuracy | Database Design |
-| 14 | UI Foundation | - Setup design system<br>- Implement theme provider<br>- Setup color system<br>- Setup typography<br>- Setup spacing system<br>- Setup breakpoints<br>- Setup animations<br>- Setup icons | Styled-components, Material-UI | 3 | - Design system<br>- Theme system<br>- UI guidelines | - Design consistency<br>- Performance impact | API Design |
-| 15 | Core Components | - Implement button system<br>- Setup form components<br>- Setup table components<br>- Setup modal system<br>- Setup notification system<br>- Setup loading states<br>- Setup error states<br>- Setup empty states | React, Styled-components | 4 | - Component library<br>- Usage guidelines<br>- Documentation | - Component consistency<br>- Performance issues | UI Foundation |
-| 16 | Form System | - Setup form validation<br>- Implement form components<br>- Setup form state<br>- Setup form submission<br>- Setup form errors<br>- Setup form reset<br>- Setup form persistence<br>- Setup form analytics | React Hook Form, Yup | 2 | - Form system<br>- Validation rules<br>- Error handling | - Form complexity<br>- Performance issues | Core Components |
-| 17 | Data Display | - Setup table system<br>- Implement chart components<br>- Setup map components<br>- Setup list components<br>- Setup card components<br>- Setup grid system<br>- Setup pagination<br>- Setup filtering | React-Table, Chart.js, Leaflet | 3 | - Data visualization<br>- Display components<br>- Interaction patterns | - Performance issues<br>- Data consistency | Core Components |
-| 18 | Robot Management | - Setup robot registration<br>- Implement status tracking<br>- Setup command system<br>- Setup firmware updates<br>- Setup configuration<br>- Setup health monitoring<br>- Setup alert system<br>- Setup dashboard | WebSocket, MQTT, gRPC | 5 | - Robot management<br>- Monitoring system<br>- Command interface | - Connection stability<br>- Data consistency | Data Display |
-| 19 | Workset Management | - Setup workset creation<br>- Implement robot assignment<br>- Setup scheduling<br>- Setup resource allocation<br>- Setup performance tracking<br>- Setup reporting<br>- Setup export/import<br>- Setup version control | React, Redux | 4 | - Workset management<br>- Assignment system<br>- Reporting tools | - Data consistency<br>- Performance issues | Robot Management |
-| 20 | Testing Infrastructure | - Setup Jest<br>- Setup React Testing Library<br>- Setup Cypress<br>- Setup test utilities<br>- Setup test coverage<br>- Setup test reporting<br>- Setup test automation<br>- Setup performance testing | Jest, Cypress | 3 | - Test infrastructure<br>- Test utilities<br>- Coverage reports | - Test reliability<br>- Performance impact | Workset Management |
-| 21 | Unit Testing | - Test core utilities<br>- Test components<br>- Test hooks<br>- Test reducers<br>- Test actions<br>- Test selectors<br>- Test API client<br>- Test form validation | Jest, React Testing Library | 4 | - Unit tests<br>- Test coverage<br>- Test reports | - Test maintenance<br>- False positives | Testing Infrastructure |
-| 22 | Integration Testing | - Test API integration<br>- Test state management<br>- Test routing<br>- Test authentication<br>- Test authorization<br>- Test database<br>- Test WebSocket<br>- Test gRPC | Jest, React Testing Library | 3 | - Integration tests<br>- Test coverage<br>- Test reports | - Test complexity<br>- Environment issues | Unit Testing |
-| 23 | E2E Testing | - Test user flows<br>- Test critical paths<br>- Test error scenarios<br>- Test performance<br>- Test security<br>- Test accessibility<br>- Test offline mode<br>- Test real-time features | Cypress | 4 | - E2E tests<br>- Test coverage<br>- Test reports | - Test maintenance<br>- Performance impact | Integration Testing |
-| 24 | Performance Optimization | - Setup code splitting<br>- Implement lazy loading<br>- Setup caching<br>- Optimize images<br>- Optimize fonts<br>- Setup service workers<br>- Setup preloading<br>- Setup prefetching | Webpack, React.lazy | 3 | - Performance metrics<br>- Optimization reports<br>- Bundle analysis | - Optimization complexity<br>- Maintenance overhead | E2E Testing |
-| 25 | Documentation | - Setup API docs<br>- Write user guide<br>- Write developer guide<br>- Write architecture docs<br>- Write component docs<br>- Write testing docs<br>- Write deployment docs<br>- Write security docs | Markdown, Swagger | 4 | - Documentation set<br>- API reference<br>- User manuals | - Documentation maintenance<br>- Accuracy issues | Performance Optimization |
-| 26 | Deployment | - Setup production environment<br>- Configure monitoring<br>- Setup logging<br>- Setup backups<br>- Setup disaster recovery<br>- Setup scaling<br>- Setup security<br>- Setup maintenance | Docker, Kubernetes | 4 | - Production environment<br>- Monitoring system<br>- Deployment process | - Deployment issues<br>- Security vulnerabilities | Documentation |
-| 27 | Monitoring & Observability | - Setup Prometheus<br>- Setup Grafana<br>- Setup metrics collection<br>- Setup alerting<br>- Setup logging<br>- Setup tracing<br>- Setup dashboards<br>- Setup anomaly detection | Prometheus, Grafana, ELK Stack | 3 | - Monitoring system<br>- Alert system<br>- Dashboards | - Monitoring overhead<br>- False alerts | Deployment |
-| 28 | Security & Compliance | - Setup security scanning<br>- Implement security policies<br>- Setup compliance checks<br>- Setup vulnerability scanning<br>- Setup penetration testing<br>- Setup security monitoring<br>- Setup incident response<br>- Setup security documentation | OWASP, SonarQube | 3 | - Security policies<br>- Compliance reports<br>- Security documentation | - Security vulnerabilities<br>- Compliance issues | Monitoring & Observability |
-| 29 | Internationalization | - Setup i18n framework<br>- Implement translations<br>- Setup language detection<br>- Setup currency handling<br>- Setup date/time formatting<br>- Setup number formatting<br>- Setup RTL support<br>- Setup translation management | i18next, react-i18next | 2 | - Translation system<br>- Language support<br>- Formatting utilities | - Translation accuracy<br>- Performance impact | Security & Compliance |
-| 30 | Analytics & Reporting | - Setup analytics tracking<br>- Implement reporting system<br>- Setup data visualization<br>- Setup custom reports<br>- Setup export functionality<br>- Setup scheduling<br>- Setup notifications<br>- Setup dashboards | Google Analytics, Chart.js | 3 | - Analytics system<br>- Reporting tools<br>- Dashboards | - Data accuracy<br>- Performance impact | Internationalization |
-| 31 | Backup & Recovery | - Setup backup system<br>- Implement recovery procedures<br>- Setup data retention<br>- Setup backup verification<br>- Setup disaster recovery<br>- Setup failover<br>- Setup data archiving<br>- Setup backup monitoring | AWS S3, RDS | 2 | - Backup system<br>- Recovery procedures<br>- Monitoring | - Backup failures<br>- Recovery time | Analytics & Reporting |
-| 32 | Mobile Responsiveness | - Implement responsive design<br>- Setup mobile navigation<br>- Optimize touch interactions<br>- Setup mobile forms<br>- Setup mobile tables<br>- Setup mobile charts<br>- Setup mobile notifications<br>- Setup offline support | React, Styled-components | 3 | - Mobile interface<br>- Responsive components<br>- Touch interactions | - Performance issues<br>- UX consistency | Backup & Recovery |
-| 33 | Accessibility | - Implement WCAG compliance<br>- Setup screen reader support<br>- Setup keyboard navigation<br>- Setup color contrast<br>- Setup focus management<br>- Setup ARIA attributes<br>- Setup accessibility testing<br>- Setup documentation | React A11y, axe-core | 2 | - Accessibility compliance<br>- Testing reports<br>- Documentation | - Compliance issues<br>- Performance impact | Mobile Responsiveness |
-| 34 | Error Tracking | - Setup error tracking<br>- Implement error reporting<br>- Setup error aggregation<br>- Setup error notifications<br>- Setup error analysis<br>- Setup error resolution<br>- Setup error documentation<br>- Setup error monitoring | Sentry, LogRocket | 2 | - Error tracking system<br>- Error reports<br>- Monitoring | - False positives<br>- Performance impact | Accessibility |
-| 35 | Performance Monitoring | - Setup performance tracking<br>- Implement performance metrics<br>- Setup performance alerts<br>- Setup performance analysis<br>- Setup performance optimization<br>- Setup performance reporting<br>- Setup performance documentation<br>- Setup performance testing | Lighthouse, Web Vitals | 2 | - Performance metrics<br>- Optimization reports<br>- Documentation | - Monitoring overhead<br>- False alerts | Error Tracking |
-| 36 | Security Scanning | - Setup static analysis<br>- Implement dynamic scanning<br>- Setup dependency scanning<br>- Setup container scanning<br>- Setup infrastructure scanning<br>- Setup compliance scanning<br>- Setup vulnerability management<br>- Setup security reporting | SonarQube, Snyk | 2 | - Security reports<br>- Vulnerability management<br>- Compliance reports | - False positives<br>- Scanning performance | Performance Monitoring |
-| 37 | Code Review | - Setup review process<br>- Implement review guidelines<br>- Setup review automation<br>- Setup review metrics<br>- Setup review documentation<br>- Setup review training<br>- Setup review monitoring<br>- Setup review reporting | GitHub, CodeClimate | 2 | - Review process<br>- Guidelines<br>- Metrics | - Review delays<br>- Quality issues | Security Scanning |
-| 38 | Dependency Management | - Setup dependency tracking<br>- Implement version control<br>- Setup update automation<br>- Setup vulnerability scanning<br>- Setup license compliance<br>- Setup dependency documentation<br>- Setup dependency monitoring<br>- Setup dependency reporting | npm, yarn | 2 | - Dependency management<br>- Update process<br>- Reports | - Update issues<br>- Compatibility problems | Code Review |
-| 39 | API Gateway | - Setup gateway service<br>- Implement routing<br>- Setup load balancing<br>- Setup rate limiting<br>- Setup authentication<br>- Setup monitoring<br>- Setup logging<br>- Setup documentation | Kong, Traefik | 3 | - Gateway service<br>- Routing rules<br>- Documentation | - Performance issues<br>- Configuration complexity | Dependency Management |
-| 40 | Message Queue | - Setup message broker<br>- Implement producers<br>- Setup consumers<br>- Setup message routing<br>- Setup message persistence<br>- Setup monitoring<br>- Setup error handling<br>- Setup documentation | RabbitMQ, Kafka | 3 | - Message system<br>- Routing rules<br>- Documentation | - Message loss<br>- Performance issues | API Gateway |
-| 41 | Cache System | - Setup cache service<br>- Implement caching strategies<br>- Setup cache invalidation<br>- Setup cache monitoring<br>- Setup cache optimization<br>- Setup cache documentation<br>- Setup cache testing<br>- Setup cache reporting | Redis, Memcached | 2 | - Cache system<br>- Strategies<br>- Documentation | - Cache consistency<br>- Performance issues | Message Queue |
-| 42 | Search System | - Setup search service<br>- Implement indexing<br>- Setup search algorithms<br>- Setup search optimization<br>- Setup search monitoring<br>- Setup search documentation<br>- Setup search testing<br>- Setup search reporting | Elasticsearch, Algolia | 3 | - Search system<br>- Indexing<br>- Documentation | - Search accuracy<br>- Performance issues | Cache System |
-| 43 | File Management | - Setup file storage<br>- Implement file upload<br>- Setup file processing<br>- Setup file validation<br>- Setup file security<br>- Setup file monitoring<br>- Setup file documentation<br>- Setup file reporting | AWS S3, MinIO | 2 | - File system<br>- Processing<br>- Documentation | - Storage issues<br>- Security vulnerabilities | Search System |
-| 44 | Notification System | - Setup notification service<br>- Implement email notifications<br>- Setup push notifications<br>- Setup SMS notifications<br>- Setup notification templates<br>- Setup notification scheduling<br>- Setup notification monitoring<br>- Setup notification documentation | SendGrid, Firebase | 2 | - Notification system<br>- Templates<br>- Documentation | - Delivery issues<br>- Spam prevention | File Management |
-| 45 | Audit System | - Setup audit logging<br>- Implement audit tracking<br>- Setup audit analysis<br>- Setup audit reporting<br>- Setup audit documentation<br>- Setup audit monitoring<br>- Setup audit security<br>- Setup audit compliance | ELK Stack, Graylog | 2 | - Audit system<br>- Reports<br>- Documentation | - Log volume<br>- Performance impact | Notification System |
-| 46 | Configuration Management | - Setup configuration service<br>- Implement configuration storage<br>- Setup configuration validation<br>- Setup configuration deployment<br>- Setup configuration monitoring<br>- Setup configuration documentation<br>- Setup configuration testing<br>- Setup configuration reporting | Consul, etcd | 2 | - Configuration system<br>- Validation<br>- Documentation | - Configuration drift<br>- Deployment issues | Audit System |
-| 47 | Service Discovery | - Setup discovery service<br>- Implement service registration<br>- Setup health checks<br>- Setup load balancing<br>- Setup failover<br>- Setup monitoring<br>- Setup documentation<br>- Setup reporting | Consul, Eureka | 2 | - Discovery system<br>- Health checks<br>- Documentation | - Service availability<br>- Performance issues | Configuration Management |
-| 48 | Load Balancing | - Setup load balancer<br>- Implement routing rules<br>- Setup health checks<br>- Setup failover<br>- Setup monitoring<br>- Setup optimization<br>- Setup documentation<br>- Setup reporting | Nginx, HAProxy | 2 | - Load balancing<br>- Rules<br>- Documentation | - Performance issues<br>- Configuration complexity | Service Discovery |
-| 49 | Rate Limiting | - Setup rate limiter<br>- Implement limiting rules<br>- Setup monitoring<br>- Setup optimization<br>- Setup documentation<br>- Setup testing<br>- Setup reporting<br>- Setup security | Nginx, Kong | 2 | - Rate limiting<br>- Rules<br>- Documentation | - False positives<br>- Performance impact | Load Balancing |
-| 50 | Circuit Breaker | - Setup circuit breaker<br>- Implement failure detection<br>- Setup fallback mechanisms<br>- Setup monitoring<br>- Setup documentation<br>- Setup testing<br>- Setup reporting<br>- Setup optimization | Hystrix, Resilience4j | 2 | - Circuit breaker<br>- Fallback<br>- Documentation | - False trips<br>- Performance impact | Rate Limiting |
+### Phase 1: Setup & Core Infrastructure (Tuần 1-2)
+1. Project Setup
+   - [x] Tạo repository GitHub
+   - [x] Setup Git workflow
+   - [x] Cấu hình branch protection
+   - [x] Setup issue templates
+   - [x] Setup pull request templates
+
+2. Development Environment
+   - [x] Setup Node.js environment
+   - [x] Install TypeScript
+   - [x] Setup ESLint
+   - [x] Setup Prettier
+   - [x] Setup Husky
+   - [x] Setup commitlint
+
+3. Build System
+   - [x] Setup Next.js
+   - [x] Setup Tailwind CSS
+   - [x] Setup Styled-components
+   - [x] Setup development server
+   - [x] Setup production build
+
+4. Core Architecture
+   - [x] Design folder structure
+   - [x] Setup module system
+   - [x] Implement error handling
+   - [x] Setup logging system
+   - [x] Setup configuration management
+
+### Phase 2: UI Foundation (Tuần 3)
+1. UI Components
+   - [x] Implement Button component
+   - [x] Setup Input component
+   - [x] Setup Form component
+   - [x] Setup Table component
+   - [x] Setup Modal component
+   - [x] Setup Loading component
+   - [x] Setup Feedback components (Alert, Toast, Tooltip)
+
+2. Layout & Navigation
+   - [x] Setup Layout component
+   - [x] Implement Header component
+   - [x] Setup Sidebar component
+   - [x] Setup responsive design
+   - [x] Setup theme system
+
+### Phase 3: Authentication & Authorization (Tuần 4)
+1. Authentication System
+   - [x] Setup NextAuth.js
+   - [x] Implement login flow
+   - [x] Setup sample user (admin@example.com)
+   - [x] Setup registration flow
+   - [x] Setup password reset
+   - [x] Setup session management
+
+2. Authorization System
+   - [x] Setup RBAC (Basic role setup in User model)
+   - [x] Implement basic role management
+   - [x] Setup permission system
+   - [x] Setup access control
+   - [x] Setup audit logging
+
+### Phase 4: Robot Management (Tuần 5-6)
+1. Robot Core Features
+   - [ ] Setup robot registration
+   - [ ] Implement status tracking
+   - [ ] Setup command system
+   - [ ] Setup firmware updates
+   - [ ] Setup configuration
+
+2. Robot Monitoring
+   - [ ] Setup real-time monitoring
+   - [ ] Implement health monitoring
+   - [ ] Setup alert system
+   - [ ] Setup dashboard
+   - [ ] Setup offline mode
+
+### Phase 5: Workset Management (Tuần 7-8)
+1. Workset Core Features
+   - [ ] Setup workset creation
+   - [ ] Implement robot assignment
+   - [ ] Setup scheduling
+   - [ ] Setup resource allocation
+   - [ ] Setup performance tracking
+
+2. Workset Advanced Features
+   - [ ] Setup real-time collaboration
+   - [ ] Implement conflict resolution
+   - [ ] Setup backup/restore
+   - [ ] Setup audit logging
+   - [ ] Setup reporting
+
+### Phase 6: Testing & Documentation (Tuần 9)
+1. Testing
+   - [ ] Setup Jest
+   - [ ] Setup React Testing Library
+   - [ ] Setup Cypress
+   - [ ] Implement unit tests
+   - [ ] Implement integration tests
+   - [ ] Implement E2E tests
+
+2. Documentation
+   - [ ] Setup API docs
+   - [ ] Write user guide
+   - [ ] Write developer guide
+   - [ ] Write architecture docs
+   - [ ] Write component docs
+
+### Phase 7: Performance & Security (Tuần 10)
+1. Performance Optimization
+   - [ ] Setup code splitting
+   - [ ] Implement lazy loading
+   - [ ] Setup caching
+   - [ ] Optimize images
+   - [ ] Setup service workers
+
+2. Security
+   - [ ] Setup security scanning
+   - [ ] Implement security policies
+   - [ ] Setup compliance checks
+   - [ ] Setup vulnerability scanning
+   - [ ] Setup security monitoring
 
 ## Giới hạn Hệ thống
 - Tối đa 10 worksets
@@ -68,13 +165,14 @@ Dự án Feet Manager Robot là một hệ thống quản lý robot với khả 
 - WebSocket/gRPC stability > 99.9%
 
 ## Yêu cầu Kỹ thuật
-- TypeScript + React
-- PostgreSQL + SQLite
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Styled-components
+- PostgreSQL
 - WebSocket/MQTT/gRPC
-- JWT Authentication
+- NextAuth.js
 - RBAC
-- Docker + Kubernetes
-- CI/CD Pipeline
 
 ## Tiêu chuẩn Chất lượng
 - Code coverage > 80%
@@ -82,22 +180,444 @@ Dự án Feet Manager Robot là một hệ thống quản lý robot với khả 
 - Performance benchmarks met
 - Security compliance
 - Accessibility standards
-- Cross-browser compatibility 
+- Cross-browser compatibility
 
-Git Repository:
-URL repository: https://github.com/kimlam2010/feet-manager-robot
-Username: kimlam2010
-Personal Access Token (PAT): YOUR_GITHUB_TOKEN
-Branch name: main
+## Cập nhật Tiến độ (13/04/2024)
 
-PostgreSQL:
-Host: 127.0.0.1
-Port: 5432
-Database name: feet_manager_robot
-Username: postgres
-Password: postgres
-SSL mode: disable
+### Đã hoàn thành:
+1. ✅ Project Setup
+2. ✅ Development Environment
+3. ✅ Build System
+4. ✅ Core Architecture
+5. ✅ UI Components (Button, Input, Form, Table, Modal, Loading, Feedback)
+6. ✅ Layout & Navigation
+7. ✅ Basic Pages Setup (Dashboard, Robots, Worksets, Settings)
+8. ✅ Database Setup (PostgreSQL)
+9. ✅ Authentication Base Setup:
+   - NextAuth.js configuration
+   - Prisma adapter integration
+   - Login page implementation
+   - Registration system
+   - Protected routes middleware
+   - Basic role system
+   - Sample admin user setup
+   - Session management
+10. ✅ Authorization System:
+    - RBAC implementation
+    - Permission system
+    - Access control
+    - Route protection
 
-Docker:
-Docker Hub username: kimlam2010
-docker login -u kimlam2010
+### Đang thực hiện:
+1. 🔄 Authentication System
+   - [x] Setup NextAuth.js
+   - [x] Implement login flow
+   - [x] Setup sample user
+   - [x] Setup registration flow
+   - [x] Setup password reset
+   - [x] Setup session management
+2. 🔄 Authorization System
+   - [x] Setup RBAC (Basic)
+   - [x] Implement basic role management
+   - [x] Setup permission system
+   - [x] Setup access control
+   - [x] Setup audit logging
+
+### Cần thực hiện tiếp:
+1. Authentication System (Remaining)
+   - [ ] Setup password reset
+
+2. Authorization System (Remaining)
+   - [ ] Setup audit logging
+
+3. Robot Management
+   - [ ] Setup robot registration
+   - [ ] Implement status tracking
+   - [ ] Setup command system
+   - [ ] Setup firmware updates
+   - [ ] Setup configuration
+   - [ ] Setup real-time monitoring
+   - [ ] Implement health monitoring
+   - [ ] Setup alert system
+   - [ ] Setup dashboard
+   - [ ] Setup offline mode
+
+4. Workset Management
+   - [ ] Setup workset creation
+   - [ ] Implement robot assignment
+   - [ ] Setup scheduling
+   - [ ] Setup resource allocation
+   - [ ] Setup performance tracking
+   - [ ] Setup real-time collaboration
+   - [ ] Implement conflict resolution
+   - [ ] Setup backup/restore
+   - [ ] Setup audit logging
+   - [ ] Setup reporting
+
+5. Testing
+   - [ ] Setup Jest
+   - [ ] Setup React Testing Library
+   - [ ] Setup Cypress
+   - [ ] Implement unit tests
+   - [ ] Implement integration tests
+   - [ ] Implement E2E tests
+
+6. Documentation
+   - [ ] Setup API docs
+   - [ ] Write user guide
+   - [ ] Write developer guide
+   - [ ] Write architecture docs
+   - [ ] Write component docs
+
+7. Performance Optimization
+   - [ ] Setup code splitting
+   - [ ] Implement lazy loading
+   - [ ] Setup caching
+   - [ ] Optimize images
+   - [ ] Setup service workers
+
+8. Security
+   - [ ] Setup security scanning
+   - [ ] Implement security policies
+   - [ ] Setup compliance checks
+   - [ ] Setup vulnerability scanning
+   - [ ] Setup security monitoring
+
+## Lưu ý:
+- Tuân thủ giới hạn 10 worksets và 100 robots
+- Đảm bảo performance requirements
+- Implement đầy đủ error handling
+- Cập nhật documentation thường xuyên
+- Tập trung vào các module đang thực hiện
+- Ưu tiên hoàn thiện Authentication System
+- Đảm bảo chất lượng code và testing
+
+# Robot Fleet Manager - Task List
+
+## Completed Tasks ✅
+
+### Authentication & Authorization
+- [x] Set up NextAuth.js with Prisma adapter
+- [x] Implement login page with email/password
+- [x] Add registration functionality
+- [x] Create password reset flow
+- [x] Implement role-based access control (admin, operator, user)
+- [x] Add permission system
+- [x] Set up protected routes with middleware
+- [x] Add sign out functionality
+
+### Database
+- [x] Set up PostgreSQL database
+- [x] Create Prisma schema
+- [x] Add User model
+- [x] Add AuditLog model
+- [x] Run initial migrations
+
+### UI Components
+- [x] Create Modal component
+- [x] Implement Alert component
+- [x] Add Layout component with navigation
+- [x] Create form components
+- [x] Add loading states
+- [x] Style authentication pages
+
+### Features
+- [x] Settings page with system configuration
+- [x] Audit logging system
+- [x] User session management
+- [x] Basic navigation structure
+
+## In Progress 🚧
+
+### Audit Logging
+- [ ] Add filtering to audit logs page
+- [ ] Implement pagination for audit logs
+- [ ] Add date range selection
+- [ ] Export audit logs functionality
+
+### Robot Management
+- [ ] Create Robot model in Prisma
+- [ ] Add robot listing page
+- [ ] Implement robot details view
+- [ ] Add robot status monitoring
+- [ ] Real-time updates for robot status
+
+### Workset Management
+- [ ] Create Workset model in Prisma
+- [ ] Add workset creation interface
+- [ ] Implement workset assignment
+- [ ] Add progress tracking
+- [ ] Schedule management
+
+### System Features
+- [ ] Implement offline support
+- [ ] Add data synchronization
+- [ ] Set up WebSocket connections
+- [ ] Add real-time notifications
+- [ ] Implement system monitoring
+
+## Bug Fixes Needed 🐛
+- [ ] Fix TypeScript errors in auth.ts (role property)
+- [ ] Fix audit log route type errors
+- [ ] Address circular dependency in auth configuration
+- [ ] Fix port synchronization in sign out process
+
+## Future Enhancements 🚀
+- [ ] Add dashboard analytics
+- [ ] Implement batch operations for robots
+- [ ] Add reporting features
+- [ ] Enhance error handling
+- [ ] Improve performance monitoring
+- [ ] Add system backup functionality
+- [ ] Implement API rate limiting
+- [ ] Add comprehensive logging
+- [ ] Enhance security measures
+
+## Documentation 📚
+- [ ] Add API documentation
+- [ ] Create user guide
+- [ ] Document deployment process
+- [ ] Add developer guidelines
+- [ ] Create troubleshooting guide
+
+## Testing 🧪
+- [ ] Add unit tests for components
+- [ ] Implement integration tests
+- [ ] Add end-to-end tests
+- [ ] Set up CI/CD pipeline
+- [ ] Add performance testing
+
+## Robot Management Section 🤖
+
+### 1. Robot List Page (/robots)
+- [x] Create basic list view with grid layout
+- [x] Add status indicators (online/offline/busy/error)
+- [x] Show battery levels with visual indicators
+- [x] Display health status
+- [x] Implement search and filtering
+- [ ] Add sorting functionality
+- [ ] Implement pagination
+- [ ] Add bulk actions (select multiple robots)
+- [ ] Add quick actions menu
+- [ ] Implement list/grid view toggle
+
+### 2. Robot Details Page (/robots/[id])
+- [ ] Display detailed robot information
+  - Basic info (name, serial number, model)
+  - Current status and health
+  - Location and movement data
+  - Battery and charging status
+  - Connected workset info
+- [ ] Real-time status monitoring
+- [ ] Command history log
+- [ ] Performance metrics
+- [ ] Error logs
+- [ ] Maintenance schedule
+
+### 3. Robot Creation Page (/robots/new)
+- [ ] Registration form with validation
+  - Basic information input
+  - Configuration settings
+  - Initial workset assignment
+  - Network settings
+  - Security configuration
+- [ ] Serial number verification
+- [ ] Automatic firmware check
+- [ ] Initial health check process
+- [ ] Connection test workflow
+
+### 4. Robot Edit Page (/robots/[id]/edit)
+- [ ] Edit basic information
+- [ ] Update configuration
+- [ ] Modify network settings
+- [ ] Adjust security settings
+- [ ] Change workset assignment
+- [ ] Update maintenance schedule
+
+### 5. Robot Monitoring Dashboard (/robots/monitoring)
+- [ ] Real-time status grid
+- [ ] Live performance metrics
+- [ ] Alert notifications
+- [ ] Battery status overview
+- [ ] Active tasks display
+- [ ] Error rate monitoring
+- [ ] Network connectivity status
+- [ ] Resource utilization graphs
+
+### 6. Robot Maintenance Page (/robots/[id]/maintenance)
+- [ ] Maintenance history
+- [ ] Schedule maintenance tasks
+- [ ] Part replacement tracking
+- [ ] Firmware update management
+- [ ] Diagnostic tools
+- [ ] Service documentation
+- [ ] Maintenance staff assignments
+
+### 7. Robot Analytics Page (/robots/analytics)
+- [ ] Performance trends
+- [ ] Usage statistics
+- [ ] Error frequency analysis
+- [ ] Battery efficiency reports
+- [ ] Workset completion rates
+- [ ] Downtime analysis
+- [ ] Comparative performance metrics
+
+### 8. Robot Settings Page (/robots/settings)
+- [ ] Global robot configurations
+- [ ] Default parameters
+- [ ] Alert thresholds
+- [ ] Monitoring preferences
+- [ ] Automation rules
+- [ ] Integration settings
+
+## Features & Functionality 🛠
+
+### 1. Real-time Monitoring
+- [ ] WebSocket connection setup
+- [ ] Live status updates
+- [ ] Real-time alerts
+- [ ] Performance monitoring
+- [ ] Connection health checks
+
+### 2. Command & Control
+- [ ] Start/Stop operations
+- [ ] Emergency stop functionality
+- [ ] Task assignment
+- [ ] Movement controls
+- [ ] Configuration updates
+- [ ] Remote restart capability
+
+### 3. Health Monitoring
+- [ ] Automated health checks
+- [ ] Predictive maintenance
+- [ ] Error detection
+- [ ] Component lifecycle tracking
+- [ ] Performance degradation alerts
+
+### 4. Security Features
+- [ ] Access control per robot
+- [ ] Command authorization
+- [ ] Connection encryption
+- [ ] Audit logging
+- [ ] Security alert system
+
+### 5. Integration Capabilities
+- [ ] API endpoints for external systems
+- [ ] Data export functionality
+- [ ] Third-party system connections
+- [ ] Webhook support
+- [ ] Custom integration options
+
+### 6. Offline Support
+- [ ] Local data caching
+- [ ] Offline command queuing
+- [ ] Sync on reconnection
+- [ ] Conflict resolution
+- [ ] Offline mode indicators
+
+### 7. Reporting System
+- [ ] Custom report generation
+- [ ] Scheduled reports
+- [ ] Performance analytics
+- [ ] Usage statistics
+- [ ] Maintenance reports
+- [ ] Error reports
+
+### 8. Batch Operations
+- [ ] Multi-robot commands
+- [ ] Bulk configuration updates
+- [ ] Group task assignment
+- [ ] Mass firmware updates
+- [ ] Batch status checks
+
+## Technical Implementation Details 🔧
+
+### 1. Database Schema
+- [ ] Robot model
+- [ ] Command history
+- [ ] Maintenance records
+- [ ] Performance metrics
+- [ ] Error logs
+- [ ] Configuration storage
+
+### 2. API Endpoints
+- [ ] CRUD operations
+- [ ] Status updates
+- [ ] Command endpoints
+- [ ] Monitoring endpoints
+- [ ] Analytics data
+- [ ] Batch operations
+
+### 3. WebSocket Implementation
+- [ ] Connection management
+- [ ] Real-time updates
+- [ ] Event handling
+- [ ] Reconnection logic
+- [ ] Data synchronization
+
+### 4. Background Services
+- [ ] Health check service
+- [ ] Monitoring service
+- [ ] Alert service
+- [ ] Sync service
+- [ ] Maintenance scheduler
+
+### 5. Security Implementation
+- [ ] Authentication
+- [ ] Authorization
+- [ ] Encryption
+- [ ] Rate limiting
+- [ ] Audit logging
+
+## Testing Requirements 🧪
+
+### 1. Unit Tests
+- [ ] Component tests
+- [ ] Service tests
+- [ ] Utility function tests
+- [ ] API endpoint tests
+- [ ] WebSocket tests
+
+### 2. Integration Tests
+- [ ] End-to-end workflows
+- [ ] API integration tests
+- [ ] Database integration
+- [ ] WebSocket integration
+- [ ] Third-party integration
+
+### 3. Performance Tests
+- [ ] Load testing
+- [ ] Stress testing
+- [ ] Real-time update performance
+- [ ] Database performance
+- [ ] Network resilience
+
+### 4. Security Tests
+- [ ] Access control testing
+- [ ] Authentication testing
+- [ ] Encryption testing
+- [ ] Penetration testing
+- [ ] Security scan automation
+
+## Documentation Requirements 📚
+
+### 1. User Documentation
+- [ ] User manual
+- [ ] Feature guides
+- [ ] Troubleshooting guide
+- [ ] FAQ section
+- [ ] Video tutorials
+
+### 2. Technical Documentation
+- [ ] API documentation
+- [ ] WebSocket protocol docs
+- [ ] Database schema docs
+- [ ] Architecture overview
+- [ ] Integration guide
+
+### 3. Development Documentation
+- [ ] Setup guide
+- [ ] Contributing guidelines
+- [ ] Code style guide
+- [ ] Testing guide
+- [ ] Deployment guide

@@ -1,0 +1,270 @@
+{
+  "agent": {
+    "name": "Robot Fleet Manager Assistant",
+    "version": "2.0.0",
+    "project": {
+      "type": "Robot Fleet Management System",
+      "features": {
+        "robotMonitoring": {
+          "realtime": true,
+          "metrics": ["status", "battery", "location", "errors"],
+          "offline": true
+        },
+        "worksetManagement": {
+          "creation": true,
+          "assignment": true,
+          "scheduling": true,
+          "tracking": true
+        },
+        "systemFeatures": {
+          "offlineSupport": true,
+          "dataSynchronization": true,
+          "multiRobotCoordination": true
+        }
+      },
+      "limits": {
+        "maxWorksets": 10,
+        "maxRobots": 100,
+        "loadTime": 3000,
+        "renderTime": 1000
+      }
+    },
+    "rules": {
+      "priority": [
+        "project_context.mdc",
+        "project_rules.mdc",
+        "docs_integration.mdc",
+        "rules.mdc"
+      ],
+      "autoApply": true,
+      "strictMode": true
+    },
+    "documentation": {
+      "autoAttach": true,
+      "updateOnChange": true,
+      "structure": {
+        "frontend": {
+          "path": "/docs/Frontend",
+          "sections": [
+            "Architecture",
+            "UI_UX",
+            "Development",
+            "Deployment"
+          ]
+        },
+        "backend": {
+          "path": "/docs/Backend",
+          "sections": [
+            "API",
+            "Database",
+            "Services"
+          ]
+        },
+        "system": {
+          "path": "/docs/System",
+          "sections": [
+            "Infrastructure",
+            "Monitoring",
+            "Security"
+          ]
+        },
+        "userGuide": {
+          "path": "/docs/User Guide",
+          "sections": [
+            "Features",
+            "Workflows",
+            "Troubleshooting"
+          ]
+        }
+      }
+    },
+    "frontend": {
+      "framework": {
+        "name": "Next.js",
+        "version": "14.x",
+        "typescript": true,
+        "styling": "Tailwind CSS"
+      },
+      "structure": {
+        "base": "/src",
+        "app": {
+          "path": "/src/app",
+          "routes": [
+            "(auth)",
+            "(dashboard)",
+            "(robots)",
+            "(worksets)"
+          ]
+        },
+        "components": {
+          "ui": {
+            "path": "/src/components/ui",
+            "categories": [
+              "buttons",
+              "inputs",
+              "feedback",
+              "forms",
+              "modals",
+              "loading",
+              "layout",
+              "navigation"
+            ]
+          },
+          "features": {
+            "path": "/src/components/features",
+            "modules": [
+              "robots",
+              "worksets",
+              "monitoring",
+              "settings"
+            ]
+          },
+          "shared": "/src/components/shared"
+        },
+        "lib": {
+          "path": "/src/lib",
+          "modules": [
+            "api",
+            "websocket",
+            "storage",
+            "utils"
+          ]
+        },
+        "hooks": "/src/hooks",
+        "types": "/src/types",
+        "styles": "/src/styles"
+      },
+      "dependencies": {
+        "core": [
+          "@tanstack/react-query",
+          "@hookform/resolvers",
+          "zod",
+          "react-hook-form",
+          "socket.io-client",
+          "localforage"
+        ],
+        "ui": [
+          "@radix-ui/react-*",
+          "@headlessui/react",
+          "class-variance-authority",
+          "clsx",
+          "tailwind-merge"
+        ]
+      }
+    },
+    "components": {
+      "autoImport": true,
+      "testing": {
+        "required": true,
+        "framework": "Jest + RTL",
+        "e2e": "Cypress"
+      },
+      "documentation": {
+        "required": true,
+        "tool": "Storybook"
+      }
+    },
+    "testing": {
+      "required": true,
+      "coverage": {
+        "minimum": 80,
+        "critical": 90
+      },
+      "tools": {
+        "unit": "Jest",
+        "integration": "React Testing Library",
+        "e2e": "Cypress",
+        "api": "MSW"
+      },
+      "scenarios": {
+        "offline": true,
+        "slowConnection": true,
+        "errorStates": true,
+        "concurrency": true
+      }
+    },
+    "performance": {
+      "metrics": {
+        "lcp": 2500,
+        "fid": 100,
+        "cls": 0.1,
+        "tti": 3500,
+        "fcp": 1800
+      },
+      "bundleSize": {
+        "initial": 170000,
+        "total": 1000000
+      },
+      "offline": {
+        "required": true,
+        "storage": "IndexedDB",
+        "sync": "Background"
+      }
+    },
+    "security": {
+      "enforce": true,
+      "authentication": {
+        "provider": "NextAuth.js",
+        "strategy": "JWT",
+        "roles": [
+          "admin",
+          "operator",
+          "viewer"
+        ]
+      },
+      "checks": [
+        "authentication",
+        "authorization",
+        "input-validation",
+        "xss-prevention",
+        "csrf-protection",
+        "api-security",
+        "offline-data-encryption"
+      ]
+    },
+    "deployment": {
+      "platform": "Vercel",
+      "ci": {
+        "provider": "GitHub Actions",
+        "checks": [
+          "lint",
+          "typecheck",
+          "test",
+          "build"
+        ]
+      },
+      "monitoring": {
+        "analytics": "Vercel Analytics",
+        "error": "Sentry",
+        "performance": "Web Vitals",
+        "offline": "Service Worker"
+      }
+    },
+    "development": {
+      "tools": {
+        "packageManager": "pnpm",
+        "linting": ["ESLint", "Prettier"],
+        "hooks": "Husky",
+        "commitLint": true
+      },
+      "standards": {
+        "typescript": "strict",
+        "formatting": "prettier",
+        "commits": "conventional"
+      },
+      "workflow": {
+        "branchStrategy": "feature-based",
+        "reviewRequired": true,
+        "automatedTests": true
+      }
+    },
+    "terminal": {
+      "execution": {
+        "oneCommandAtATime": true,
+        "waitForCompletion": true,
+        "verifySuccess": true,
+        "usePowerShell": true
+      }
+    }
+  }
+} 

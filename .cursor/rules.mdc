@@ -1,0 +1,87 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+ @project_standards:
+  // ... existing code ...
+
+@dependency_management:
+  - Always specify exact versions in package.json
+  - Document all peer dependencies
+  - Keep dependencies up to date
+  - Use --legacy-peer-deps only when necessary
+  - Document all global dependencies
+  - Maintain a clean node_modules
+
+@type_safety:
+  - Enable strict mode in tsconfig.json
+  - Define interfaces for all props
+  - Use type guards for runtime checks
+  - Avoid any type
+  - Document complex types
+  - Use enums for constants
+  - Validate API responses
+
+@file_structure:
+  - Use PascalCase for component files
+  - Use camelCase for utility files
+  - Group related components
+  - Maintain consistent folder structure
+  - Document folder purpose
+  - Keep files small and focused
+  - Use index.ts for exports
+
+@error_handling:
+  - Implement error boundaries
+  - Handle API errors gracefully
+  - Log errors appropriately
+  - Provide user feedback
+  - Document error scenarios
+  - Test error cases
+  - Maintain error tracking
+
+@testing:
+  - Write unit tests for components
+  - Test edge cases
+  - Mock external dependencies
+  - Test error scenarios
+  - Document test cases
+  - Maintain test coverage
+  - Use snapshot testing
+
+@documentation:
+  - Document component props
+  - Document complex logic
+  - Keep README up to date
+  - Document setup process
+  - Document common issues
+  - Maintain changelog
+  - Document API changes
+
+@code_review:
+  - Check type safety
+  - Verify error handling
+  - Review test coverage
+  - Check documentation
+  - Verify performance
+  - Review security
+  - Check accessibility
+
+@performance:
+  - Optimize bundle size
+  - Use code splitting
+  - Implement lazy loading
+  - Optimize images
+  - Cache API responses
+  - Monitor performance
+  - Document optimizations
+
+@security:
+  - Validate user input
+  - Sanitize data
+  - Use HTTPS
+  - Implement CORS
+  - Secure API keys
+  - Handle authentication
+  - Document security measures

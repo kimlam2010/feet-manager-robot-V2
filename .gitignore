@@ -1,22 +1,26 @@
 # dependencies
-node_modules/
-.pnp
+/node_modules
+/.pnp
 .pnp.js
 
 # testing
-coverage/
+/coverage
 
 # next.js
 /.next/
 /out/
 
 # production
-build/
-dist/
+/build
 
 # misc
 .DS_Store
 *.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # debug
 npm-debug.log*
@@ -25,22 +29,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Sensitive files
-create_repo.ps1
-delete_repo.ps1
-.cursor/rules/rule_credentials.mdc 
+next-env.d.ts 

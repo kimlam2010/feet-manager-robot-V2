@@ -1,30 +1,50 @@
 # Feet Manager Robot
 
-A robot management system supporting real-time and offline operations.
+A modern web application for managing robot fleets with real-time monitoring and control capabilities.
 
-## System Limits
-- Maximum 10 worksets
-- Maximum 100 robots
-- Page load time < 3s
-- Render time < 1s
-- Memory usage < 100MB
-- Network requests < 50/minute
-- WebSocket/gRPC stability > 99.9%
+## Features
+
+- Robot Management
+  - Real-time status monitoring
+  - Health tracking
+  - Battery level monitoring
+  - Location tracking
+  - Maintenance scheduling
+  - Firmware management
+
+- Workset Management
+  - Create and edit worksets
+  - Assign robots to worksets
+  - Track workset progress
+  - Schedule workset execution
+
+- System Features
+  - Real-time updates via WebSocket
+  - Offline support
+  - Data synchronization
+  - Multi-robot coordination
+  - Audit logging
 
 ## Tech Stack
-- TypeScript + React (Next.js)
-- PostgreSQL + SQLite
-- WebSocket/MQTT/gRPC
-- JWT Authentication
-- RBAC
-- Docker + Kubernetes
-- CI/CD Pipeline
+
+- Frontend:
+  - Next.js 14
+  - TypeScript
+  - Tailwind CSS
+  - React Query
+  - Socket.io Client
+
+- Backend:
+  - Next.js API Routes
+  - Prisma ORM
+  - PostgreSQL
+  - Socket.io
 
 ## Getting Started
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/kimlam2010/feet-manager-robot.git
+git clone [repository-url]
 cd feet-manager-robot
 ```
 
@@ -35,46 +55,36 @@ npm install
 
 3. Set up environment variables:
 ```bash
-cp .env.example .env
+cp .env.example .env.local
+```
+Then edit `.env.local` with your configuration.
+
+4. Run database migrations:
+```bash
+npx prisma migrate dev
 ```
 
-4. Run the development server:
+5. Start the development server:
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-## Available Scripts
-
-- `npm run dev` - Run development server
+- `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm start` - Start production server
+- `npm run start` - Start production server
 - `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm test` - Run tests
-
-## Project Structure
-
-```
-src/
-  ├── components/     # Reusable components
-  ├── pages/         # Next.js pages
-  ├── services/      # API services
-  ├── utils/         # Utility functions
-  ├── hooks/         # Custom React hooks
-  ├── store/         # Redux store
-  ├── types/         # TypeScript types
-  ├── assets/        # Static assets
-  └── styles/        # Global styles
-```
+- `npm run test` - Run tests
 
 ## Contributing
 
-1. Create a new branch
-2. Make your changes
-3. Submit a pull request
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 

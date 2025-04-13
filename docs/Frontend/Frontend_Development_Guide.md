@@ -18,28 +18,21 @@ Frontend của Feet Robot Manager V2 được phát triển bằng React và Typ
 
 ## Cấu trúc dự án
 
+### Directory Organization
 ```
-App_Frontend/
-├── src/
-│   ├── components/
-│   │   ├── common/
-│   │   └── features/
-│   │   ├── features/
-│   │   │   ├── auth/
-│   │   │   ├── dashboard/
-│   │   │   ├── robot/
-│   │   │   ├── map/
-│   │   │   └── task/
-│   │   ├── hooks/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   ├── types/
-│   │   ├── styles/
-│   │   ├── assets/
-│   │   └── pages/
-│   ├── tests/
-│   ├── public/
-│   └── docs/
+src/
+├── components/
+│   ├── layouts/        # Layout components
+│   ├── features/       # Feature-specific components
+│   ├── ui/            # Reusable UI components
+│   └── shared/        # Shared utilities and components
+├── pages/             # Page components
+├── routes/            # Route configurations
+├── contexts/          # React contexts
+├── hooks/             # Custom hooks
+├── services/          # API and service integrations
+├── utils/             # Utility functions
+└── types/             # TypeScript type definitions
 ```
 
 ## Công nghệ sử dụng
@@ -302,4 +295,151 @@ VITE_MAPBOX_TOKEN=your_token
 
 ### State Management
 - [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
-- [React Query](https://tanstack.com/query/v4/docs/overview) 
+- [React Query](https://tanstack.com/query/v4/docs/overview)
+
+## Routing and Layout
+
+### Setting Up Routes
+1. Define public routes in `routes/public.tsx`:
+```typescript
+const publicRoutes = [
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
+  }
+];
+```
+
+2. Define protected routes in `routes/protected.tsx`:
+```typescript
+const protectedRoutes = [
+  {
+    path: '/dashboard',
+    element: <Dashboard />
+  },
+  {
+    path: '/robots',
+    element: <RobotManagement />
+  }
+];
+```
+
+3. Configure main router in `App.tsx`:
+```typescript
+function App() {
+  return (
+    <Routes>
+      {/* Public routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      
+      {/* Protected routes */}
+      <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/robots/*" element={<RobotManagement />} />
+      </Route>
+      
+      {/* Catch all route */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  );
+}
+```
+
+### Creating Layout Components
+1. MainLayout structure:
+```typescript
+function MainLayout() {
+  return (
+    <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+      <Sidebar />
+      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+        <Header />
+        <Box component="main" sx={{ flex: 1, p: 3 }}>
+          <Outlet />
+        </Box>
+        <Footer />
+      </Box>
+    </Box>
+  );
+}
+```
+
+2. ProtectedRoute implementation:
+```typescript
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated } = useAuth();
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  return <>{children}</>;
+}
+```
+
+## Best Practices
+
+### Component Development
+1. Keep components focused and small
+2. Use TypeScript for type safety
+3. Implement proper error handling
+4. Add loading states where needed
+5. Use proper naming conventions
+
+### Routing
+1. Use nested routes for related features
+2. Implement proper route protection
+3. Handle 404 and error routes
+4. Use lazy loading for performance
+5. Keep route configuration organized
+
+### State Management
+1. Use context for global state
+2. Keep local state minimal
+3. Implement proper error handling
+4. Use loading states appropriately
+5. Cache API responses when possible
+
+### Performance
+1. Implement code splitting
+2. Use lazy loading for routes
+3. Optimize re-renders
+4. Cache API responses
+5. Use proper memoization
+
+## Testing
+
+### Component Testing
+1. Test component rendering
+2. Test user interactions
+3. Test error states
+4. Test loading states
+5. Test accessibility
+
+### Routing Testing
+1. Test route protection
+2. Test navigation
+3. Test route parameters
+4. Test error routes
+5. Test authentication flow
+
+## Deployment
+
+### Build Process
+1. Run type checking
+2. Run tests
+3. Build production bundle
+4. Optimize assets
+5. Generate source maps
+
+### Environment Configuration
+1. Set up environment variables
+2. Configure API endpoints
+3. Set up authentication
+4. Configure logging
+5. Set up error tracking 
